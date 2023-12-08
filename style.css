@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f3f3;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+.hidden {
+  display: none !important;
+}
+/* buttons */
+button {
+  cursor: pointer;
+}
+.edit-button:hover, .delete-button:hover, .markDone-button:hover, #plusbtn:hover, #delAll:hover {
+  background-color: #34495e;
+}
+/* all input and selct inputs */
+input,
+select {
+  outline: none;
+  border: 1px solid rgb(78, 51, 255);
+  border-radius: 5px;
+}
+
+/* message displayed when todos are zero */
+
+.message {
+  font-size: 2rem;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+
+/* message:todo-tracker */
+
+#todo-track {
+  position: absolute !important;
+  top: 2rem !important;
+}
+/* sort and refine select inputs */
+#sortRefine
+{
+  display:flex;
+  margin:15px;
+  gap:1rem;
+  justify-content: center;
+}
+/* delete all block */
+#delAll
+{
+    background-color: rgb(78, 51, 255);
+    border:none;
+    padding:0.5rem 0.75rem;
+    cursor: pointer;
+    border-radius: 5px;
+    color:white;
+}
+/* center todo block */
+.center {
+  max-width: 800px;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: auto;
+  max-height: 65vh;
+  width: 40vw;
+}
+
+.input-container
+{
+  display:flex;
+  flex-direction: column;
+}
+/* each todo-item entry */
+.todo-item, .CompletedTodo-item {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #ecf0f1;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr 0.4fr;
+}
+
+.todo-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+/*each todo-item category tag and priority tag*/
+.category-tag, .priority-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+/*each todo-item category tag*/
+.category-tag {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/*each todo-item priority tag*/
+.priority-tag {
+  background-color: #e74c3c;
+  color: #fff;
+}
+.priority-tag-high
+{
+  background-color: red;
+  color: white;
+}
+.priority-tag-medium
+{
+  background-color: orange;
+  color: white;
+}
+.priority-tag-low
+{
+  background-color: green;
+  color: white;
+}
+/*each todo-item description*/
+.todo-description {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  flex-grow: 1;
+  word-wrap: break-word;
+}
+/*each todo-item added and due dates*/
+.todo-dates {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #777;
+}
+/*each todo-item edit delete and markDone buttons*/
+.btns
+{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align buttons to the start of the container */
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+.edit-button, .delete-button, .markDone-button, .markUnDone-button, .deleteDone-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+/*each todo-item edit button*/
+.edit-button {
+  background-color: #3498db;
+}
+/*each todo-item delete button*/
+.delete-button, .deleteDone-button{
+  background-color: #e74c3c;
+}
+/*each todo-item markDone button*/
+.markDone-button, .markUnDone-button {
+  background-color: rgb(47, 200, 47);
+}
+/* todo-form inputs */
+.todo-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: absolute;
+  bottom: 0.5rem;
+}
+
+.todo-input > div {
+  display: flex;
+  gap: 0.5rem;
+}
+/* todo-form inputs duedate */
+#due-date {
+  padding: 0.5rem 0.25rem;
+  font-size: 1.1rem;
+}
+/* todo-form text input*/
+#todo {
+  width: 20rem;
+  outline: none;
+  border: 1px solid rgb(78, 51, 255);
+  border-radius: 5px;
+  padding: 0.5rem 0.25rem;
+  font-size: 1.2rem;
+}
+/* todo-form submit input*/
+#plusbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: none;
+  background-color: rgb(78, 51, 255);
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* scrollbar */
+
+#todos::-webkit-scrollbar {
+  width: 5px;
+}
+
+#todos::-webkit-scrollbar-thumb {
+  background: rgb(78, 51, 255);
+  border-radius: 100px;
+}

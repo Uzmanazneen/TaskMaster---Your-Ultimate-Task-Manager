@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Master</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+<!-- input form with duedate, todo, category and priority as inputs -->
+    <form class="todo-input" id="todo-form">
+      <div>
+        <input type="date" name="due-date" id="due-date" />
+        <input type="text" id="todo" name="todo" autocomplete="off" placeholder="I have to..." required />
+
+        <select name="category" id="category">
+          <option disabled selected>Category</option>
+          <option value="Personal">Personal</option>
+          <option value="Work">Work</option>
+          <option value="Health">Health</option>
+          <option value="Tech">Tech</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <select name="priority" id="priority">
+          <option disabled selected>Priority</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+
+      <button id="plusbtn"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="white">
+          <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+      </button>
+    </form>
+<!-- message:todo-tracker -->
+    <p id="todo-track"><span id="todo-num"></span></p>
+<!-- sort and refine select inputs -->
+    <div class="sortRefineContainer">
+      <div class="sortRefine" id="sortRefine">
+        <span class="sortField">Sort By:</span>
+
+        <select class="sortField" name="sortInput" id="sortInput">
+          <option disabled selected>Select</option>
+            <option value="Alphabetical-Order">Alphabetical-Order</option>
+            <option value="Category">Category</option>
+            <option value="Due-Date">Due-Date</option>
+            <option value="Newest-First">Newest-First</option>
+            <option value="Oldest-First">Oldest-First</option>
+            <option value="Priority">Priority</option>
+        </select>
+
+        <span class="refineField">Filter:</span>
+        <select class="refineField" name="refineInput" id="refineInput">
+          <option disabled selected>Select</option>
+            <option value="Pending">Pending</option>
+            <option value="Completed">Completed</option>
+        </select> 
+<!-- delete all button -->
+        <button id="delAll" class="todoDelAll" onclick="delAllTodo()">Delete All</button>
+        <button id="delAll"class="completedTododelAll" onclick="delAllCompletedTodo()">Clear All</button>
+        </div>
+        <!-- message displayed when todos are zero -->
+    <div class="message">Try adding some tasks...</div>
+<!-- central block containing todos entries -->
+          <div class="center" id="todos"></div>
+    </div>
+    <script src="todo.js"></script>
+  </body>
+</html>
